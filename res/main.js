@@ -1,5 +1,5 @@
 const bucketname = "blog.shr4pnel.com";
-const bucketuri = "https://corsanywhere-wvqi.onrender.com/?url=https://storage.googleapis.com/blog.shr4pnel.com/";
+const bucketuri = "https://storage.googleapis.com/blog.shr4pnel.com/";
 
 function downloadPosts() {
     fetch("/api/getposts", {

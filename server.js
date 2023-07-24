@@ -31,7 +31,7 @@ app.get("/api/getposts", async (_req, res) => {
 })
 
 app.get("/posts/:postname", async (req, res) => {
-    let article = await fetch(`https://corsanywhere-wvqi.onrender.com/?url=https://storage.googleapis.com/blog.shr4pnel.com/posts/${req.params.postname}.json`)
+    let article = await fetch(`https://storage.googleapis.com/blog.shr4pnel.com/posts/${req.params.postname}.json`)
     article = await article.json();
     return res.sendFile(path.resolve("article.html"));
 })
