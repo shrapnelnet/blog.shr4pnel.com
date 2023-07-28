@@ -8,6 +8,7 @@
 
 * {
     font-family: 'IBM VGA 8x16', monospace;
+    overflow-x: hidden;
 }
 
 body {
@@ -19,7 +20,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
+    width: 97%;
 }
 
 .flex-item {
@@ -33,7 +34,9 @@ body {
 
 .end {
     justify-content: end;
-    margin-right: 50px;
+    position: absolute;
+    right: 30px;
+    width: 97%;
 }
 
 .logo {
@@ -105,5 +108,11 @@ a {
     .flex-container {
         display: block;
         margin-left: 10px;
+    }
+
+    .end {
+        position: unset;
+        width: auto;
+        right: auto;
     }
 }
