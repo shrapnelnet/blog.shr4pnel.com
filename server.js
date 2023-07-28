@@ -3,14 +3,11 @@ import express from "express";
 import path from "path";
 import fetch from "node-fetch";
 import { Storage } from "@google-cloud/storage";
-import referrerPolicy from "referrer-policy";
 const storage = new Storage();
 const app = express();
 app.use(cors());
 app.use(express.static("res"));
 app.use(express.json());
-app.use(referrerPolicy({policy: "origin"}));
-app.set("view engine", "pug");
 
 app.get("/", (_req, res) => {
     return res.sendFile(path.resolve("./index.html"));
