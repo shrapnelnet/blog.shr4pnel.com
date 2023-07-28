@@ -27,9 +27,7 @@ app.get("/api/getposts", async (_req, res) => {
     return res.json(fileNames);
 })
 
-app.get("/posts/:postname", async (req, res) => {
-    let article = await fetch(`https://storage.googleapis.com/blog.shr4pnel.com/posts/${req.params.postname}.json`)
-    article = await article.json();
+app.get("/posts/:postname", (_req, res) => {
     return res.sendFile(path.resolve("article.html"));
 })
 

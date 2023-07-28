@@ -28,7 +28,7 @@ function downloadPosts() {
                 .then((postArray) => {
                     const articles = document.getElementById("articles");
                     // create content, dynamically link it to article.html
-                    postArray.forEach((post) => {
+                    postArray.forEach((post, index) => {
                         const card = document.createElement("div");
                         card.classList.add("card");
                         const image = document.createElement("img");
@@ -44,7 +44,8 @@ function downloadPosts() {
                         card.appendChild(image);
                         card.appendChild(title);
                         card.appendChild(date);
-                        articles.innerHTML = "";
+                        if (index === 0)
+                            articles.innerHTML = "";
                         articles.appendChild(card);
                     })
 

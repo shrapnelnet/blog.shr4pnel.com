@@ -92,6 +92,11 @@ div.card > img {
     border-radius: 10%;
 }
 
+div#title {
+    margin: 0 auto;
+    width: 90%;
+}
+
 a {
     color: goldenrod;
 }
@@ -102,6 +107,11 @@ a {
 
 .ducks {
     margin-top: 10px;
+}
+
+.column {
+    flex-direction: column;
+    align-items: center;
 }
 
 @media only screen and (max-width: 900px) {
