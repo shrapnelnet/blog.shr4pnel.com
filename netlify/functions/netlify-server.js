@@ -8,7 +8,7 @@ const storage = new Storage();
 const app = express();
 const router = Router();
 app.use(cors());
-app.use(express.static("res"));
+app.use(express.static("../../res"));
 app.use(express.json());
 app.use("/api/", router);
 
