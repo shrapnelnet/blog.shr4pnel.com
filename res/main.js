@@ -1,6 +1,18 @@
 const bucketname = "blog.shr4pnel.com";
 const bucketuri = "https://storage.googleapis.com/blog.shr4pnel.com/";
 
+function sortPostArray(dateA, dateB) {
+    dateA = new Date(dateA.date);
+    dateB = new Date(dateB.date);
+    console.log(dateA, dateB)
+    if (dateA < dateB) {
+        console.log("fired")
+        return 1; 
+    } else if (dateB > dateA) {
+        return -1;
+    }
+}
+
 function downloadPosts() {
     fetch("/api/getposts", {
         headers: {
@@ -26,6 +38,8 @@ function downloadPosts() {
                 return post.json();
             }))
                 .then((postArray) => {
+                    postArray.sort(sortPostArray);
+                    console.log(postArray);
                     const articles = document.getElementById("articles");
                     // create content, dynamically link it to article.html
                     postArray.forEach((post, index) => {
