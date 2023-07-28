@@ -33,6 +33,6 @@ app.get("/posts/:postname", async (req, res) => {
     return res.sendFile(path.resolve("article.html"));
 })
 
-app.listen(80, () => {
+app.listen(3000, () => {
     console.log("server started");  
 })
