@@ -114,6 +114,18 @@ a {
     align-items: center;
 }
 
+.small {
+    width: 32px;
+}
+
+#webrings {
+    margin-top: 100px;
+}
+
+.big-margin-right {
+    margin-right: 55px;
+}
+
 @media only screen and (max-width: 900px) {
     .flex-container {
         display: block;
@@ -128,5 +140,11 @@ a {
 
     .no-margin {
         margin: 0 0 0 0;
+    }
+
+    div#hotline.flex-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: unset;
     }
 }
