@@ -1,7 +1,6 @@
 import cors from "cors";
 import express from "express";
 import path from "path";
-import fetch from "node-fetch";
 import { Storage } from "@google-cloud/storage";
 const storage = new Storage();
 const app = express();
