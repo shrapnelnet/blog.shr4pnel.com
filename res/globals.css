@@ -115,6 +115,7 @@ a {
 }
 
 .small {
+    height: 32px;
     width: 32px;
 }
 
@@ -147,6 +148,13 @@ div.card > p {
     text-align: right;
 }
 
+#hotline {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: fit-content;
+}
+
 @media only screen and (max-width: 900px) {
     .end {
         position: unset;
@@ -156,12 +164,6 @@ div.card > p {
 
     .no-margin {
         margin: 0 0 0 0;
-    }
-
-    div#hotline.flex-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: unset;
     }
 
     #articles {
