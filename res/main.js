@@ -44,12 +44,13 @@ function downloadPosts() {
                         card.classList.add("card");
                         const image = document.createElement("img");
                         image.src = post.thumb === "default" ? "/anon.png": post.thumb;
-                        image.style.width = "100px"
+                        image.style.width = "90px";
+                        image.style.height = "90px";
                         const title = document.createElement("a");
                         title.innerHTML = post.title;
                         title.id = "wrap";
                         title.href = "/posts/" + post.name;
-                        const date = document.createElement("p")
+                        const date = document.createElement("p");
                         const dateContent = new Date(post.date);
                         date.innerHTML = dateContent.toLocaleString();
                         card.appendChild(image);

@@ -5,18 +5,23 @@
 
 * {
     font-family: 'IBM VGA 8x16', monospace;
-    overflow-x: hidden;
 }
 
 body {
     background-color: #ffffff;
+    background-image: url("/cupcake.gif");
+    max-height: 100%;
+    max-width: 100%;
 }
 
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 97%;
+.container {
+    padding: 20px;
+    width: 700px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    border: 1px solid black;
 }
 
 .flex-item {
@@ -74,6 +79,7 @@ body {
     flex-direction: row;
     align-items: center;
     width: fit-content;
+    margin-bottom: 10px;
 }
 
 .content {
@@ -84,8 +90,6 @@ body {
 
 div.card > img {
     margin-right: 10px;
-    border: 1px solid lightgray;
-    border-radius: 10%;
 }
 
 div#title {
@@ -122,12 +126,30 @@ a {
     margin-right: 55px;
 }
 
-@media only screen and (max-width: 900px) {
-    .flex-container {
-        display: block;
-        margin-left: 10px;
-    }
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+}
 
+#articles {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    width: fit-content;
+    margin-top: 20px;
+    box-shadow: 0 0 3px #815d00;
+    border-top: 5px solid goldenrod;
+    margin-bottom: 20px;
+    padding-bottom: 0px;
+}
+
+div.card > p {
+    text-align: right;
+}
+
+@media only screen and (max-width: 900px) {
     .end {
         position: unset;
         width: auto;
@@ -142,5 +164,15 @@ a {
         display: flex;
         flex-direction: row;
         justify-content: unset;
+    }
+
+    #articles {
+        margin: 0;
+        width: unset;
+        max-width: 100%;
+    }
+
+    .container {
+        max-width: 80%;
     }
 }
