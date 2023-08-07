@@ -171,6 +171,7 @@ div.card > p {
         margin: 0;
         width: unset;
         max-width: 100%;
+        padding: unset;
     }
 
     .container {
