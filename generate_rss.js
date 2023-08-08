@@ -1,7 +1,21 @@
 import XMLWriter from "xml-writer";
 import fs from "fs";
 let builder = new XMLWriter(true);
-let date = new Date();
+
+function dateToRFC822(date) {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const RFC822Day = days[date.getUTCDay()];
+    const RFC822Month = date.getUTCDate();
+    const month = months[date.getUTCMonth()];
+    const year = date.getUTCFullYear();
+    const hours = date.getUTCHours();
+    const minutes = date.getUTCMinutes();
+    const seconds = date.getUTCSeconds();
+    const timezone = date.toString().includes("Mean") ? "GMT": "BST";
+    return `${RFC822Day}, ${RFC822Month} ${month} ${year} ${hours}:${minutes}:${seconds} ${timezone}`;
+}
+
 // your public storage bucket here
 const bucketURI = "https://storage.googleapis.com/blog.shr4pnel.com/";
 // your site here
@@ -13,10 +27,12 @@ builder.writeElement("title", "blog.shr4pnel.com");
 builder.writeElement("link", "https://blog.shr4pnel.com");
 builder.writeElement("description", "Ruminations on music, the world and whatever rubbish pops into my head delivered straight to you.");
 builder.writeElement("language", "en");
-builder.writeElement("webMaster", "shrapnelnet@protonmail.com")
-builder.writeElement("lastBuildDate", date.toString());
+builder.writeElement("webMaster", "shrapnelnet@protonmail.com (big tyler)")
+builder.writeElement("lastBuildDate", dateToRFC822(new Date()));
+builder.writeElement("pubDate", "Sun, 23 Jul 2023 15:37:28 BST")
 builder.writeElement("generator", "shrapnelnet RSS servant v1.0");
 builder.writeElement("docs", "https://cyber.harvard.edu/rss/rss.html");
+builder.writeRaw("\n\t\t<atom:link href=\"https://blog.shr4pnel.com/rss.xml\" rel=\"self\" type=\"application/rss+xml\" />");
 // Item level elements (per blog post)
 // fetch posts as array of items in storage bucket
 let bucketFileArray = await fetch("https://blog.shr4pnel.com/api/getposts");
@@ -41,8 +57,9 @@ posts.forEach((post) => {
     builder.startElement("item");
     builder.writeElement("title", post.title);
     builder.writeElement("link", `${blogURI}/posts/${post.name}`);
-    builder.writeElement("author", "shrapnelnet@protonmail.com");
-    builder.writeElement("pubDate", new Date(post.date).toString());
+    builder.writeElement("author", "shrapnelnet@protonmail.com (big tyler)");
+    builder.writeElement("pubDate", dateToRFC822(new Date(post.date)));
+    builder.writeElement("guid", post.name);
     builder.endElement("item");
 });
 builder.endElement("channel");

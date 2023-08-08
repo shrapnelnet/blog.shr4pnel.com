@@ -5,27 +5,32 @@
         <link>https://blog.shr4pnel.com</link>
         <description>Ruminations on music, the world and whatever rubbish pops into my head delivered straight to you.</description>
         <language>en</language>
-        <webMaster>shrapnelnet@protonmail.com</webMaster>
-        <lastBuildDate>Tue Aug 08 2023 02:41:08 GMT+0100 (British Summer Time)</lastBuildDate>
+        <webMaster>shrapnelnet@protonmail.com (big tyler)</webMaster>
+        <lastBuildDate>Tue, 8 Aug 2023 2:26:9 BST</lastBuildDate>
+        <pubDate>Sun, 23 Jul 2023 15:37:28 BST</pubDate>
         <generator>shrapnelnet RSS servant v1.0</generator>
         <docs>https://cyber.harvard.edu/rss/rss.html</docs>
+		<atom:link href="https://blog.shr4pnel.com/rss.xml" rel="self" type="application/rss+xml" />
         <item>
             <title>Diversifying tastes in music, or: "why you should be listening to good music instead of your music"</title>
             <link>https://blog.shr4pnel.com/posts/diversifying</link>
-            <author>shrapnelnet@protonmail.com</author>
-            <pubDate>Mon Aug 07 2023 20:11:30 GMT+0100 (British Summer Time)</pubDate>
+            <author>shrapnelnet@protonmail.com (big tyler)</author>
+            <pubDate>Mon, 7 Aug 2023 19:11:30 BST</pubDate>
+            <guid>diversifying</guid>
         </item>
         <item>
             <title>infrastructure updates and web revival or "why the internet fucking sucks and will possibly forever"</title>
             <link>https://blog.shr4pnel.com/posts/webrevival</link>
-            <author>shrapnelnet@protonmail.com</author>
-            <pubDate>Fri Jul 28 2023 16:04:31 GMT+0100 (British Summer Time)</pubDate>
+            <author>shrapnelnet@protonmail.com (big tyler)</author>
+            <pubDate>Fri, 28 Jul 2023 15:4:31 BST</pubDate>
+            <guid>webrevival</guid>
         </item>
         <item>
             <title>am i a narcissist or did i just really need a blog</title>
             <link>https://blog.shr4pnel.com/posts/narcissist</link>
-            <author>shrapnelnet@protonmail.com</author>
-            <pubDate>Sun Jul 23 2023 16:37:28 GMT+0100 (British Summer Time)</pubDate>
+            <author>shrapnelnet@protonmail.com (big tyler)</author>
+            <pubDate>Sun, 23 Jul 2023 15:37:28 BST</pubDate>
+            <guid>narcissist</guid>
         </item>
     </channel>
 </rss>
