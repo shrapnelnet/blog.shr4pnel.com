@@ -10,9 +10,7 @@ async function main() {
     title.innerHTML = article.title;
     titleDiv.appendChild(title);
     const date = document.createElement("h3");
-    console.log(article.date)
-    const articleDate = new Date(article.date)
-    console.log(articleDate)
+    const articleDate = new Date(article.date);
     date.innerHTML = articleDate.toUTCString();
     dateDiv.appendChild(date);
     const articleArray = article.content.split("\n");
