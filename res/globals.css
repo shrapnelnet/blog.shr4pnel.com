@@ -171,6 +171,15 @@ div.card > p {
     margin-right: 10px;
 }
 
+#friends {
+    display: block !important;
+    text-align: center;
+}
+
+.friend-container {
+    margin-top: 20px;
+}
+
 @media only screen and (max-width: 900px) {
     .end {
         position: unset;
