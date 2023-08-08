@@ -15,6 +15,10 @@ body {
     max-width: 100%;
 }
 
+img {
+    max-width: 100%;
+}
+
 .container {
     padding: 20px;
     width: 700px;
@@ -23,6 +27,7 @@ body {
     text-align: center;
     background-color: white;
     border: 1px solid black;
+    position: relative;
 }
 
 .flex-item {
@@ -90,11 +95,6 @@ body {
 
 div.card > img {
     margin-right: 10px;
-}
-
-div#title {
-    margin: 0 auto;
-    width: 90%;
 }
 
 a {
@@ -187,8 +187,10 @@ div.card > p {
     margin-right: 2px;
 }
 
-#content > p {
+#article {
     text-align: left;
+    margin: 0 auto;
+    width: 90%;
 }
 
 @media only screen and (max-width: 900px) {
