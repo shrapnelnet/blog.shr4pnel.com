@@ -32,7 +32,6 @@ builder.writeElement("lastBuildDate", dateToRFC822(new Date()));
 builder.writeElement("pubDate", "Sun, 23 Jul 2023 15:37:28 BST")
 builder.writeElement("generator", "shrapnelnet RSS servant v1.0");
 builder.writeElement("docs", "https://cyber.harvard.edu/rss/rss.html");
-builder.writeRaw(`\n        <atom:link href="https://blog.shr4pnel.com/rss.xml" rel="self" type="application/rss+xml" />`)
 // Item level elements (per blog post)
 // fetch posts as array of items in storage bucket
 let bucketFileArray = await fetch("https://blog.shr4pnel.com/api/getposts");
