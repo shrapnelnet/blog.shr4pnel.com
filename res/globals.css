@@ -187,6 +187,10 @@ div.card > p {
     margin-right: 2px;
 }
 
+#content > p {
+    text-align: left;
+}
+
 @media only screen and (max-width: 900px) {
     .end {
         position: unset;
