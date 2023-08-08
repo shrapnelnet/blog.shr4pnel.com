@@ -29,7 +29,7 @@ builder.writeElement("description", "Ruminations on music, the world and whateve
 builder.writeElement("language", "en");
 builder.writeElement("webMaster", "shrapnelnet@protonmail.com (big tyler)")
 builder.writeElement("lastBuildDate", dateToRFC822(new Date()));
-builder.writeElement("pubDate", "Sun, 23 Jul 2023 15:37:28 BST")
+builder.writeElement("pubDate", "Sun, 23 Jul 2023 15:37:28 GMT")
 builder.writeElement("generator", "shrapnelnet RSS servant v1.0");
 builder.writeElement("docs", "https://cyber.harvard.edu/rss/rss.html");
 // Item level elements (per blog post)
