@@ -58,7 +58,7 @@ posts.forEach((post) => {
     builder.writeElement("link", `${blogURI}/posts/${post.name}`);
     builder.writeElement("author", "shrapnelnet@protonmail.com (big tyler)");
     builder.writeElement("pubDate", dateToRFC822(new Date(post.date)));
-    builder.writeElement("guid", post.name);
+    builder.writeElement("guid", `${blogURI}/posts/${post.name}`);
     builder.endElement("item");
 });
 builder.endElement("channel");
