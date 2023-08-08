@@ -6,7 +6,7 @@
         <description>Ruminations on music, the world and whatever rubbish pops into my head delivered straight to you.</description>
         <language>en</language>
         <webMaster>shrapnelnet@protonmail.com (big tyler)</webMaster>
-        <lastBuildDate>Tue, 08 Aug 2023 02:51:12 BST</lastBuildDate>
+        <lastBuildDate>Tue, 08 Aug 2023 02:58:00 GMT</lastBuildDate>
         <pubDate>Sun, 23 Jul 2023 15:37:28 BST</pubDate>
         <generator>shrapnelnet RSS servant v1.0</generator>
         <docs>https://cyber.harvard.edu/rss/rss.html</docs>
@@ -14,22 +14,22 @@
             <title>Diversifying tastes in music, or: "why you should be listening to good music instead of your music"</title>
             <link>https://blog.shr4pnel.com/posts/diversifying</link>
             <author>shrapnelnet@protonmail.com (big tyler)</author>
-            <pubDate>Mon, 07 Aug 2023 19:11:30 BST</pubDate>
-            <guid>diversifying</guid>
+            <pubDate>Mon, 07 Aug 2023 19:11:30 GMT</pubDate>
+            <guid>https://blog.shr4pnel.com/posts/diversifying</guid>
         </item>
         <item>
             <title>infrastructure updates and web revival or "why the internet fucking sucks and will possibly forever"</title>
             <link>https://blog.shr4pnel.com/posts/webrevival</link>
             <author>shrapnelnet@protonmail.com (big tyler)</author>
-            <pubDate>Fri, 28 Jul 2023 15:04:31 BST</pubDate>
-            <guid>webrevival</guid>
+            <pubDate>Fri, 28 Jul 2023 15:04:31 GMT</pubDate>
+            <guid>https://blog.shr4pnel.com/posts/webrevival</guid>
         </item>
         <item>
             <title>am i a narcissist or did i just really need a blog</title>
             <link>https://blog.shr4pnel.com/posts/narcissist</link>
             <author>shrapnelnet@protonmail.com (big tyler)</author>
-            <pubDate>Sun, 23 Jul 2023 15:37:28 BST</pubDate>
-            <guid>narcissist</guid>
+            <pubDate>Sun, 23 Jul 2023 15:37:28 GMT</pubDate>
+            <guid>https://blog.shr4pnel.com/posts/narcissist</guid>
         </item>
     </channel>
 </rss>
