@@ -1,35 +1,57 @@
 import cors from "cors";
 import express from "express";
 import path from "path";
-import { Storage } from "@google-cloud/storage";
+import fs from "fs";
 import compression from "compression";
-const storage = new Storage();
+import helmet from "helmet";
 const app = express();
 app.use(cors());
 app.use(express.static("res"));
 app.use(express.json());
 app.use(compression());
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            "default-src": ["'self'"],
+            "script-src": ["'self'"],
+            "script-src-attr": ["'self'"],
+            "font-src": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"]
+        }
+    }
+}));
 
 app.get("/", (_req, res) => {
     return res.sendFile(path.resolve("./index.html"));
 })
 
-async function getPosts() {
-    const [files] = await storage.bucket("blog.shr4pnel.com").getFiles();
-    let fileNames = [];
-    files.forEach((file) => {
-        fileNames.push(file.name);
-    })
-    return fileNames;
-}
-
 app.get("/api/getposts", async (_req, res) => {
-    const fileNames = await getPosts();
-    return res.json(fileNames);
+    const JSONFiles = [];
+    fs.readdir(path.resolve("./res/posts"), (err, files) => {
+        if (err) {
+            console.error(err);
+            return res.status(500);
+        }
+        files.forEach((fileName) => {
+            const file = fs.readFileSync(path.resolve(`./res/posts/${fileName}`));
+            let post = JSON.parse(file);
+            JSONFiles.push(post);
+        });
+        return res.json(JSONFiles);
+    })
+})
+
+app.get("/api/getpost", async (req, res) => {
+    const postBuffer = fs.readFileSync(path.resolve(`./res/posts/${req.query.post}`));
+    const postJSON = JSON.parse(postBuffer);
+    return res.json(postJSON);
 })
 
 app.get("/posts/:postname", (_req, res) => {
     return res.sendFile(path.resolve("article.html"));
+})
+
+app.use((_req, res) => {
+    res.status(404).sendFile(path.resolve("./404.html"));
 })
 
 app.listen(3000, () => {

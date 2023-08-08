@@ -4,7 +4,7 @@ async function main() {
     const dateDiv = document.getElementById("date");
     const contentDiv = document.getElementById("content");
     const articleName = window.location.pathname.split("/").slice(-1);
-    let article = await fetch(`https://storage.googleapis.com/blog.shr4pnel.com/posts/${articleName}.json`);
+    let article = await fetch(`/api/getpost?post=${articleName}.json`);
     article = await article.json();
     let title = document.createElement("h1");
     title.innerHTML = article.title;

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generate post</title>
+</head>
+<body>
+    <h1>make post</h1>
+    <form onsubmit="generate(event);return false">
+        <input type="text" name="title" placeholder="Title">
+        <textarea name="content" placeholder="content" style="width:400px;height:300px;"></textarea>
+        <input type="text" name="thumb" placeholder="Thumb URL">
+        <input type="text" name="name" placeholder="Name">
+        <input type="submit">
+    </form>
+<script>
+    function generate(event) {
+        const title = event.target[0].value;
+        const content = event.target[1].value;
+        const thumb = event.target[2].value;
+        const name = event.target[3].value;
+        const date = new Date();
+        const post = {
+            title,
+            date: date.toLocaleString(),
+            content,
+            thumb,
+            name
+        }
+        console.log(JSON.stringify(post));
+    }
+</script>
+</body>
+</html>
