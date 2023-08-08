@@ -79,7 +79,6 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: fit-content;
     margin-bottom: 10px;
 }
 
@@ -154,6 +153,22 @@ div.card > p {
     align-items: center;
     margin: 0 auto;
     width: fit-content;
+}
+
+#socials {
+    display: block;
+    margin: 30px auto;
+    width: fit-content;
+}
+
+#socials > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#socials > div > img {
+    margin-right: 10px;
 }
 
 @media only screen and (max-width: 900px) {
