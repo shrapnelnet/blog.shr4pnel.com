@@ -6,14 +6,14 @@ function dateToRFC822(date) {
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const RFC822Day = days[date.getUTCDay()];
-    const RFC822Month = date.getUTCDate();
+    const dayOfMonth = date.getUTCDate() < 10 ? `0${date.getUTCDate()}`: date.getUTCDate();
     const month = months[date.getUTCMonth()];
     const year = date.getUTCFullYear();
-    const hours = date.getUTCHours();
-    const minutes = date.getUTCMinutes();
-    const seconds = date.getUTCSeconds();
+    const hours = date.getUTCHours() < 10 ? `0${date.getUTCHours()}`: date.getUTCHours();
+    const minutes = date.getUTCMinutes() < 10 ? `0${date.getUTCMinutes()}`: date.getUTCMinutes();
+    const seconds = date.getUTCSeconds() < 10 ? `0${date.getUTCSeconds()}`: date.getUTCSeconds();
     const timezone = date.toString().includes("Mean") ? "GMT": "BST";
-    return `${RFC822Day}, ${RFC822Month} ${month} ${year} ${hours}:${minutes}:${seconds} ${timezone}`;
+    return `${RFC822Day}, ${dayOfMonth} ${month} ${year} ${hours}:${minutes}:${seconds} ${timezone}`;
 }
 
 // your public storage bucket here
@@ -32,7 +32,7 @@ builder.writeElement("lastBuildDate", dateToRFC822(new Date()));
 builder.writeElement("pubDate", "Sun, 23 Jul 2023 15:37:28 BST")
 builder.writeElement("generator", "shrapnelnet RSS servant v1.0");
 builder.writeElement("docs", "https://cyber.harvard.edu/rss/rss.html");
-builder.writeRaw("\n\t\t<atom:link href=\"https://blog.shr4pnel.com/rss.xml\" rel=\"self\" type=\"application/rss+xml\" />");
+builder.writeRaw(`\n        <atom:link href="https://blog.shr4pnel.com/rss.xml" rel="self" type="application/rss+xml" />`)
 // Item level elements (per blog post)
 // fetch posts as array of items in storage bucket
 let bucketFileArray = await fetch("https://blog.shr4pnel.com/api/getposts");
