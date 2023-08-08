@@ -12,7 +12,7 @@ function dateToRFC822(date) {
     const hours = date.getUTCHours() < 10 ? `0${date.getUTCHours()}`: date.getUTCHours();
     const minutes = date.getUTCMinutes() < 10 ? `0${date.getUTCMinutes()}`: date.getUTCMinutes();
     const seconds = date.getUTCSeconds() < 10 ? `0${date.getUTCSeconds()}`: date.getUTCSeconds();
-    const timezone = date.toString().includes("Mean") ? "GMT": "BST";
+    const timezone = "GMT";
     return `${RFC822Day}, ${dayOfMonth} ${month} ${year} ${hours}:${minutes}:${seconds} ${timezone}`;
 }
 
