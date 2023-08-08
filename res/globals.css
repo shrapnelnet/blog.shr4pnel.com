@@ -178,6 +178,13 @@ div.card > p {
 
 .friend-container {
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.friend-container > a {
+    margin-right: 2px;
 }
 
 @media only screen and (max-width: 900px) {
