@@ -20,7 +20,10 @@ app.use(helmet({
     }
 }));
 
-app.get("/", (_req, res) => {
+app.get("/", (req, res) => {
+    if (req.headers.referer) {
+        console.log(`I WAS REFERRED BY ${req.headers.referer}`)
+    }
     return res.sendFile(path.resolve("./index.html"));
 })
 
