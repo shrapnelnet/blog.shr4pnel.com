@@ -15,7 +15,8 @@ app.use(helmet({
             "default-src": ["'self'"],
             "script-src": ["'self'"],
             "script-src-attr": ["'self'"],
-            "font-src": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"]
+            "font-src": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
+            "img-src": ["'self'", "wallpapercave.com"]
         }
     }
 }));
@@ -51,6 +52,10 @@ app.get("/api/getpost", async (req, res) => {
 
 app.get("/posts/:postname", (_req, res) => {
     return res.sendFile(path.resolve("article.html"));
+})
+
+app.get("/links", (_req, res) => {
+    return res.sendFile(path.resolve("links.html"))
 })
 
 app.use((_req, res) => {
