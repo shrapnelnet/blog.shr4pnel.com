@@ -31,7 +31,21 @@ async function getFiles() {
         post = await readFile(path.resolve(`./res/posts/${post}`))
         return JSON.parse(post)
     }))
+    parsedFiles.sort((a, b) => {
+        if (a.date < b.date) {
+            return 1;
+        } else {
+            return -1;
+        }
+    })
     return parsedFiles
+}
+
+async function getFile(fileName) {
+    const file = await new Promise((resolve) => {resolve(
+        readFile(path.resolve(`./res/posts/${fileName}.json`))
+    )})
+    return JSON.parse(file)
 }
 
 app.get("/", async (req, res) => {
@@ -42,8 +56,9 @@ app.get("/", async (req, res) => {
     return res.render("index.pug", {posts})
 })
 
-app.get("/posts/:postname", (_req, res) => {
-    return res.sendFile(path.resolve("article.html"))
+app.get("/posts/:postname", async (req, res) => {
+    const post = await getFile(req.params.postname)
+    return res.render("article.pug", {post})
 })
 
 app.get("/links", (_req, res) => {
