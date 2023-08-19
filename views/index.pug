@@ -1,0 +1,80 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title shr4pnel blog
+        link(rel="preload" as="style" href="/onionring.css")
+        link(rel="stylesheet" href="/onionring.css")
+        link(rel="preload" as="style" href="/globals.css")
+        link(rel="stylesheet" href="/globals.css")
+    body 
+        header 
+            .container.title-container
+                h1.logo shrapnelnet
+        main
+            .container
+                h2.highlighted articles
+                #articles
+                    each post in posts
+                        article
+                            -const image = post.thumb === "default" ? "/anon.png" : post.thumb
+                            -const date = new Date(post.date)
+                            .card 
+                                img(src=image alt="article image" height="80" width="80")
+                                a(href=`/posts/${post.name}`)=post.title
+                                p=date.toLocaleString().split(",")[0]
+                img(src="/cutiecat.gif" alt="cute cats bouncing up and down animated")
+                footer 
+                    #socials
+                        h2.highlighted socials
+                        div 
+                            // this is to pretend there's a little image here
+                            div(style="width:42px")
+                            a(href="/links") My webrings!
+                        div
+                            div(style="width:42px")
+                            a(href="mailto:admin@shr4pnel.com") My email
+                        div
+                            img(src="/github-mark.svg" alt="github logo" width="32px" height="32px")
+                            a(href="https://github.com/shrapnelnet/" target="_blank") github/shrapnelnet
+                        div
+                            img(src="/mastodon.svg" alt="mastodon logo" width="32px" height="32px")
+                            a(href="https://blobfox.coffee/@tyler" target="_blank") @tyler@blobfox.coffee
+                    #friends
+                        h2.highlighted friends
+                        .friend-container
+                            a(href="/")
+                                img(src="/blogbutton.gif" alt="blog.shr4pnel.com blog button. has a little animated cat called mauzy on it")
+                            a(href="https://foreverliketh.is")
+                                img(src="/foreverliketh.is.png" alt="foreverliketh.is blog banner. green leaves with light blue text in front")
+                            a(href="https://angelsaremathematical.neocities.org/" target="_blank")
+                                img(src="/angels.png" alt="pink background with confetti with original apple pink CRT with monospaced font reading angels are mathematical")
+                            a(href="https://blunt.gay")
+                                img(src="/bluntgay.png" alt="purple outline and text, monospaced, rainbow left aligned, text right aligned")
+                        h2.highlighted lainchan
+                        .friend-container.lain
+                            sub(style="line-height:1.25em;width:80%;text-align:left")
+                                | i am manually curating and adding to this list, please contact me at 
+                                a(href="mailto:admin@shr4pnel.com") admin@shr4pnel.com
+                                | &nbsp;or my mastodon. feel free to add my button to your blog, and the lainchan button onto your blog after sending your button to the post there on the /tech/ section of the forum.
+                            span.flex-wrap
+                            a(href="/")
+                                img(src="/lain/blog.shr4pnel.com.gif" alt="grey background, style of windows 9x button, cat called mauzy next to animated text which reads: blog.shr4pnel.com (disappears) you like blogs dont you?")
+                            a(href="https://forum.agoraroad.com" target="_blank")
+                                img(src="/lain/agora.gif" alt="animated gif with scrolling fading out text: shhhhh (fade out) the best kept secret")
+                            a(href="https://articexploit.xyz" target="_blank")
+                                img(src="/lain/arcade.gif" alt="animated gif with retropunk text outlined in blue filled with pink spelling: the arcade. background is a flashing arcade with lit up screens")
+                            a(href="https://lainchan.org" target="_blank")
+                                img(src="/lain/lainchan.org.gif" alt="distorted gif with face of lain iwakura next to the font from the show in the top right reading: lainchan.")
+                            a(href="https://gamajun.neocities.org/webrings/lainring" target="_blank")
+                                img(src="/lain/gamajun.png" alt="grey background, pink design and text, glyphs surrounded by floral pattern")
+                            a(href="https://havinganame.neocities.org" target="_blank")
+                                img(src="/lain/havinganame.png" alt="still image, neon green text on black backdrop. reads: havinganame@neocities")
+                            a(href="https://cabbagesorter.neocities.org/" target="_blank")
+                                img(src="/lain/cabbagesorter.png" alt="still image, monospaced green font on black backdrop. face in anime style to right of image with glow effect applied around it. text is glowing green around the edges")
+                            a(href="https://foreverliketh.is" target="_blank")
+                                img(src="/lain/foreverliketh.is.gif" alt="foreverliketh.is blog banner. green leaves with light blue text in front")
+                            a(href="https://sizeof.cat" target="_blank")
+                                img(src="/lain/sizeofcat.gif" alt="white text on black background with blue cat. animated, cats eyes turn red and it rolls offscreen to the right. text reads: sizeof. cat is on the right of this text")
+                            

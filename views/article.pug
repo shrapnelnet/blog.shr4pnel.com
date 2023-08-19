@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title article!
+        link(rel="preload" as="style" href="/onionring.css")
+        link(rel="stylesheet" href="/onionring.css")
+        link(rel="preload" as="style" href="/globals.css")
+        link(rel="stylesheet" href="/globals.css")
+    body
+        header
+            .container.title-container 
+                h1.logo shrapnelnet
+        
+        .container
+            main
+                article
+                    .use-ibm#content
+                        .title
+                            h1(style="font-size:20px")=post.title
+                        #date 
+                            p=new Date(post.date).toUTCString()
+                        sub by tyler, yes, the tyler!
+                        .flex-newline
+                        img(src="/duckzone.gif" alt="waddling ducks" style="margin-top:20px")
+                        - let content = post.content
+                        - content = content.split("\n")
+                        each paragraph in content
+                            p !{paragraph}
+            footer(style="margin-top:40px")
+                a(href="/" style="font-size:12px") back home!
