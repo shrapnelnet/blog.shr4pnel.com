@@ -165,7 +165,12 @@ p > img {
     margin-bottom: 20px;
 }
 
-
+.lain-text {
+    line-height: 1.25em;
+    width: 80%;
+    text-align: left;
+    margin-top: 10px;
+}
 
 div#content.use-ibm > p, div#content.use-ibm > a {
     font-family: "IBM VGA";
