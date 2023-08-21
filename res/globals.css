@@ -174,7 +174,7 @@ p > img {
 
 div#content.use-ibm > p, div#content.use-ibm > a {
     font-family: "IBM VGA";
-    font-size: 16px;
+    font-size: 1.125em;
 }
 
 @media only screen and (max-width: 467px) {
@@ -193,6 +193,7 @@ div#content.use-ibm > p, div#content.use-ibm > a {
     .logo {
         font-size: x-large;
         text-shadow: -3px 2px green;
+        word-wrap: break-word;
     }
 
     .card {
