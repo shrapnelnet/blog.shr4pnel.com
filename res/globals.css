@@ -142,6 +142,11 @@ p > img {
     margin-bottom: 20px;
 }
 
+.left {
+    margin: 0 0;
+    text-align: left;
+}
+
 #hotline {
     display: flex;
     align-items: center;

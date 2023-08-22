@@ -65,6 +65,10 @@ app.get("/links", (_req, res) => {
     return res.sendFile(path.resolve("links.html"))
 })
 
+app.get("/minesweeper", (_req, res) => {
+    return res.render("minesweeper.pug")
+})
+
 app.use((_req, res) => {
     res.status(404).sendFile(path.resolve("./404.html"))
 })

@@ -22,6 +22,10 @@ html(lang="en")
                                 img(src=image alt="article image" height="80" width="80")
                                 a(href=`/posts/${post.name}`)=post.title
                                 p=date.toLocaleString().split(",")[0]
+                p 
+                    | or uhh just play&nbsp;
+                    a(href="/minesweeper") minesweeper
+                    | &nbsp;:3
                 img(src="/cutiecat.gif" alt="cute cats bouncing up and down animated")
                 footer 
                     #socials

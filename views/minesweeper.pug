@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title shr4pnel blog
+        link(rel="preload" as="style" href="/globals.css")
+        link(rel="stylesheet" href="/globals.css")
+        link(rel="preload" as="style" href="/minesweeper/minesweeper.css")
+        link(rel="stylesheet" href="/minesweeper/minesweeper.css")
+    body
+        header.container.title-container
+            h1.logo shrapnelnet
+        main.container
+            h3 minesweeper
+            p i will not work on mobile ! do not try
+            p right click to flag. chords coming soon
+            #gameover
+            #score-container 
+                .score-bevel
+                    .number-group#bomb-group
+                        img#bomb-0(src="/minesweeper/0_seconds.png")
+                        img#bomb-1(src="/minesweeper/4_seconds.png")
+                        img#bomb-2(src="/minesweeper/0_seconds.png")
+                    #smiley
+                        input(type="image" src="/minesweeper/face_smile.png")
+                    .number-group#time-group
+                        img#second-0(src="/minesweeper/0_seconds.png")
+                        img#second-1(src="/minesweeper/0_seconds.png")
+                        img#second-2(src="/minesweeper/0_seconds.png")
+            #game-grid
+    script(src="/minesweeper/minesweeper.js")
