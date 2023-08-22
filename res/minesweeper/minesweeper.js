@@ -23,8 +23,13 @@ let modeInfo = {
 
 const updateBombTimer = () => {
     let bombString = bombTotal.toString()
-    document.getElementById("bomb-1").src = `/minesweeper/${bombString[0]}_seconds.png`
-    document.getElementById("bomb-2").src = `/minesweeper/${bombString[1]}_seconds.png`
+    if (!(bombTotal < 10)) {
+        document.getElementById("bomb-1").src = `/minesweeper/${bombString[0]}_seconds.png`
+        document.getElementById("bomb-2").src = `/minesweeper/${bombString[1]}_seconds.png`
+    } else {
+        document.getElementById("bomb-1").src = "/minesweeper/0_seconds.png"
+        document.getElementById("bomb-2").src = `/minesweeper/${bombString}_seconds.png`
+    }
 }
 
 const makeBombs = () => {
