@@ -3,6 +3,9 @@ let rows = 16
 let bombTotal = 40
 let mode = "intermediate"
 let bombArray = []
+let gameStarted = false
+let interval = null
+let gameStartedAt = 0
 let modeInfo = {
     beginner: {
         columns: 9,
@@ -57,6 +60,7 @@ const markAllHiddenBombs = () => {
 }
 
 const gameOver = (row, column) => {
+    clearInterval(interval)
     const grid = document.getElementById("game-grid")
     grid.childNodes.forEach((tile) => {
         tile.disabled = "disabled"
@@ -98,7 +102,27 @@ const checkBombAdjacency = (row, column) => {
     return adjacencyCounter
 }
 
+const updateTimer = () => {
+    const currentTime = Math.floor((performance.now() - gameStartedAt) / 1000)
+    const lengthOutcomesArray = [
+        [document.getElementById("second-2")],
+        [document.getElementById("second-1"), document.getElementById("second-2")],
+        [document.getElementById("second-0"), document.getElementById("second-1"), document.getElementById("second-2")]
+    ]
+    const digitLength = currentTime.toString().length
+    const timesToChangeArray = lengthOutcomesArray[digitLength-1]
+    timesToChangeArray.forEach((digitNode, index) => {
+        const currentDigitValue = currentTime.toString()[index]
+        digitNode.src = `/minesweeper/${currentDigitValue}_seconds.png`
+    })
+    console.log(currentTime)
+}
+
 const openTile = (event) => {
+    if (!gameStarted)
+        gameStartedAt = performance.now()
+        interval = setInterval(updateTimer, 1000)
+        gameStarted = true
     const [row, column] = event.target.id.split(",").map((num) => {return Number(num)})
     if (bombArray[row][column]) {
         gameOver(row, column)
@@ -128,6 +152,8 @@ const clearGrid = () => {
     document.querySelector("#smiley > input").src = "/minesweeper/face_smile.png"
     document.getElementById("gameover").innerHTML = ""
     bombTotal = 40
+    gameStarted = false
+    clearInterval(interval)
     createBoard()
 }
 
@@ -159,8 +185,16 @@ const createBoard = () => {
             grid.appendChild(tile)
         })
     })
-
 }
+
 
 document.addEventListener("DOMContentLoaded", createBoard)
 document.querySelector("#smiley > input").addEventListener("click", clearGrid)
+
+document.getElementById("game-grid").addEventListener("mousedown", () => {
+    document.querySelector("#smiley > input").src = "/minesweeper/face_ooh.png"
+})
+
+document.getElementById("game-grid").addEventListener("mouseup", () => {
+    document.querySelector("#smiley > input").src = "/minesweeper/face_smile.png"
+})
