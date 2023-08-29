@@ -6,6 +6,7 @@ let bombArray = []
 let gameStarted = false
 let interval = null
 let gameStartedAt = 0
+let tilesVisited = new Set()
 let modeInfo = {
     beginner: {
         columns: 9,
@@ -115,14 +116,51 @@ const updateTimer = () => {
         const currentDigitValue = currentTime.toString()[index]
         digitNode.src = `/minesweeper/${currentDigitValue}_seconds.png`
     })
-    console.log(currentTime)
+}
+
+const checkIfAgainstWall = (row, column) => {
+    const isTouchingTopWall = row === 0 ? true : false
+    const isTouchingBottomWall = row === 15 ? true : false
+    const isTouchingLeftWall = column === 0 ? true : false
+    const isTouchingRightWall = column === 15 ? true : false
+    const isTouchingTopLeftWall = isTouchingTopWall && isTouchingLeftWall
+    const isTouchingTopRightWall = isTouchingTopWall && isTouchingRightWall
+    const isTouchingBottomLeftWall = isTouchingBottomWall && isTouchingLeftWall
+    const isTouchingBottomRightWall = isTouchingBottomWall && isTouchingRightWall
+    return { isTouchingTopWall, isTouchingBottomWall, isTouchingLeftWall, isTouchingRightWall, isTouchingTopLeftWall, isTouchingTopRightWall, isTouchingBottomLeftWall, isTouchingBottomRightWall }
+} 
+
+const openAdjacentTiles = (row, column, adjacentWalls) => {
+    tilesVisited.add(`${row},${column}`)
+    const tilesToIgnore = []
+    const allTiles = [`${row-1},${column}`, `${row},${column-1}`, `${row+1},${column}`, `${row},${column+1}`, `${row-1},${column-1}`, `${row+1},${column-1}`, `${row+1},${column+1}`, `${row-1},${column+1}`]
+    if (adjacentWalls.isTouchingTopWall) {
+        tilesToIgnore.push(`${row-1},${column}`)
+    } else if (adjacentWalls.isTouchingBottomWall) {
+        tilesToIgnore.push(`${row+1},${column}`)
+    }
+    if (adjacentWalls.isTouchingLeftWall) {
+        tilesToIgnore.push(`${row},${column-1}`)
+    } else if (adjacentWalls.isTouchingRightWall) {
+        tilesToIgnore.push(`${row},${column+1}`)
+    }
+    allTiles.forEach((tileID) => {
+        if (tilesToIgnore.includes(tileID)) {
+            return
+        }
+        if (!tilesVisited.has(tileID)) {
+            tilesVisited.add(tileID)
+            document.getElementById(tileID).click()
+        }
+    })
 }
 
 const openTile = (event) => {
-    if (!gameStarted)
+    if (!gameStarted) {
         gameStartedAt = performance.now()
         interval = setInterval(updateTimer, 1000)
         gameStarted = true
+    }
     const [row, column] = event.target.id.split(",").map((num) => {return Number(num)})
     if (bombArray[row][column]) {
         gameOver(row, column)
@@ -130,12 +168,16 @@ const openTile = (event) => {
         // set number in tile of adjacent bombs
         const adjacentBombs = checkBombAdjacency(row, column)
         document.getElementById(`${row},${column}`).src = `/minesweeper/num_${adjacentBombs}.png`
+        // if tile empty
+        if (!adjacentBombs) {
+            const adjacentWalls = checkIfAgainstWall(row, column)
+            openAdjacentTiles(row, column, adjacentWalls)
+        }   
     }
-    checkBombAdjacency(row, column)
 }
 
 const flag = (event) => {
-    event.target.src = event.target.src.includes("/minesweeper/blank.png") ? "/minesweeper/bomb_flagged.png" : "/minesweeper/blank.png"
+    event.target.src = event.target.src.includes("/minesweeper/blank.png") && event ? "/minesweeper/bomb_flagged.png" : "/minesweeper/blank.png"
     if (event.target.src.includes("/minesweeper/bomb_flagged.png")) {
         bombTotal--;
     } else {
@@ -146,6 +188,14 @@ const flag = (event) => {
     return false;
 }
 
+const resetInterval = () => {
+    clearInterval(interval)
+    const segments = ["0", "1", "2"]
+    segments.forEach((clockSegment) => {
+        document.getElementById(`second-${clockSegment}`).src = "0_seconds.png"
+    })
+}
+
 const clearGrid = () => {
     document.getElementById("game-grid").innerHTML = ""
     bombArray = []
@@ -153,7 +203,7 @@ const clearGrid = () => {
     document.getElementById("gameover").innerHTML = ""
     bombTotal = 40
     gameStarted = false
-    clearInterval(interval)
+    resetInterval()
     createBoard()
 }
 
