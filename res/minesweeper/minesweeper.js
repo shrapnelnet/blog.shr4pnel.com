@@ -73,6 +73,7 @@ const gameOver = (row, column) => {
     gameOverDiv.appendChild(gameOverText)
     document.getElementById(`${row},${column}`).src = "/minesweeper/bomb_death.png"
     markAllHiddenBombs()
+    gameStarted = false
 }
 
 const checkBombAdjacency = (row, column) => {
@@ -241,10 +242,16 @@ const createBoard = () => {
 document.addEventListener("DOMContentLoaded", createBoard)
 document.querySelector("#smiley > input").addEventListener("click", clearGrid)
 
-document.getElementById("game-grid").addEventListener("mousedown", () => {
-    document.querySelector("#smiley > input").src = "/minesweeper/face_ooh.png"
+// change face on blank tile click
+document.getElementById("game-grid").addEventListener("mousedown", (event) => {
+    if (event.target.src.includes("/minesweeper/blank.png"))
+        document.querySelector("#smiley > input").src = "/minesweeper/face_ooh.png"
 })
 
-document.getElementById("game-grid").addEventListener("mouseup", () => {
-    document.querySelector("#smiley > input").src = "/minesweeper/face_smile.png"
+
+// change face on click release
+// applied to whole document in case mouse clicks and is dragged out of grid
+document.addEventListener("mouseup", (event) => {
+    if (gameStarted || event.target.src.includes("/minesweeper/blank.png"))
+        document.querySelector("#smiley > input").src = "/minesweeper/face_smile.png"
 })
