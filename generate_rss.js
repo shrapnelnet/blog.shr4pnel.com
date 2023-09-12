@@ -16,8 +16,6 @@ function dateToRFC822(date) {
     return `${RFC822Day}, ${dayOfMonth} ${month} ${year} ${hours}:${minutes}:${seconds} ${timezone}`;
 }
 
-// your public storage bucket here
-const bucketURI = "https://storage.googleapis.com/blog.shr4pnel.com/";
 // your site here
 const blogURI = "https://blog.shr4pnel.com";
 builder.startDocument();
@@ -48,7 +46,7 @@ posts.forEach((post) => {
     builder.startElement("item");
     builder.writeElement("title", post.title);
     builder.writeElement("link", `${blogURI}/posts/${post.name}`);
-    builder.writeElement("author", "shrapnelnet@protonmail.com (big tyler)");
+    builder.writeElement("author", "admin@shr4pnel.com (big tyler)");
     builder.writeElement("pubDate", dateToRFC822(new Date(post.date)));
     builder.writeElement("guid", `${blogURI}/posts/${post.name}`);
     builder.endElement("item");
