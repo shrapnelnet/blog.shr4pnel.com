@@ -7,6 +7,7 @@ let gameStarted = false
 let interval = null
 let gameStartedAt = 0
 let tilesVisited = new Set()
+let gameIsOver = false
 let modeInfo = {
     beginner: {
         columns: 9,
@@ -61,7 +62,9 @@ const markAllHiddenBombs = () => {
 }
 
 const gameOver = (row, column) => {
+    gameIsOver = true
     clearInterval(interval)
+    interval = 0
     const grid = document.getElementById("game-grid")
     grid.childNodes.forEach((tile) => {
         tile.disabled = "disabled"
@@ -198,6 +201,7 @@ const resetInterval = () => {
 }
 
 const clearGrid = () => {
+    gameIsOver = false
     document.getElementById("game-grid").innerHTML = ""
     bombArray = []
     document.querySelector("#smiley > input").src = "/minesweeper/face_smile.png"
@@ -251,7 +255,8 @@ document.getElementById("game-grid").addEventListener("mousedown", (event) => {
 
 // change face on click release
 // applied to whole document in case mouse clicks and is dragged out of grid
-document.addEventListener("mouseup", (event) => {
-    if (gameStarted || event.target.src.includes("/minesweeper/blank.png"))
-        document.querySelector("#smiley > input").src = "/minesweeper/face_smile.png"
+document.addEventListener("mouseup", () => {
+    if (gameIsOver)
+        return
+    document.querySelector("#smiley > input").src = "/minesweeper/face_smile.png"
 })
