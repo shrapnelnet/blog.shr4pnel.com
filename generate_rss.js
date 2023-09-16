@@ -1,6 +1,9 @@
 import XMLWriter from "xml-writer";
 import fs from "fs";
+import { promisify } from "util";
 let builder = new XMLWriter(true);
+const readFile = promisify(fs.readFile)
+const readdir = promisify(fs.readdir)
 
 function dateToRFC822(date) {
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -31,10 +34,15 @@ builder.writeElement("pubDate", "Sun, 23 Jul 2023 15:37:28 GMT")
 builder.writeElement("generator", "shrapnelnet RSS servant v1.0");
 builder.writeElement("docs", "https://cyber.harvard.edu/rss/rss.html");
 // Item level elements (per blog post)
-let posts = await fetch("https://blog.shr4pnel.com/api/getposts");
-posts = await posts.json();
+const posts = await readdir("./res/posts")
+const fullPostArray = []
+for (const post of posts) {
+    const postJSONBuffer = await readFile(`./res/posts/${post}`)
+    const postJSON = JSON.parse(postJSONBuffer.toString())
+    fullPostArray.push(postJSON)
+}
 // sort descending by date
-posts = posts.sort((a, b) => {
+const sortedPosts = fullPostArray.sort((a, b) => {
     if (a.date < b.date) {
         return 1;
     } else {
@@ -42,7 +50,7 @@ posts = posts.sort((a, b) => {
     }
 });
 // item level elements
-posts.forEach((post) => {
+sortedPosts.forEach((post) => {
     builder.startElement("item");
     builder.writeElement("title", post.title);
     builder.writeElement("link", `${blogURI}/posts/${post.name}`);
