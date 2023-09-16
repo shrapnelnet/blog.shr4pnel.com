@@ -208,7 +208,7 @@ div#content.use-ibm > p, div#content.use-ibm > a {
     }
 
     .card > p {
-        text-align: center;
+        margin-left: 2%;
     }
 
     .card > img {
