@@ -6,7 +6,7 @@
         <description>Ruminations on music, the world and whatever rubbish pops into my head delivered straight to you.</description>
         <language>en</language>
         <webMaster>shrapnelnet@protonmail.com (big tyler)</webMaster>
-        <lastBuildDate>Sat, 16 Sep 2023 15:11:24 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 19 Oct 2023 22:46:17 GMT</lastBuildDate>
         <pubDate>Sun, 23 Jul 2023 15:37:28 GMT</pubDate>
         <generator>shrapnelnet RSS servant v1.0</generator>
         <docs>https://cyber.harvard.edu/rss/rss.html</docs>
@@ -16,6 +16,7 @@
             <author>admin@shr4pnel.com (big tyler)</author>
             <pubDate>Fri, 15 Sep 2023 21:02:34 GMT</pubDate>
             <guid>https://blog.shr4pnel.com/posts/switzerland</guid>
+            <description>photos of my trip to switzerland, lots of cows and trees to be seen here.</description>
         </item>
         <item>
             <title>The death of Aaron Swartz, or: "fiction's about what it is to be a fucking human being"</title>
@@ -23,6 +24,7 @@
             <author>admin@shr4pnel.com (big tyler)</author>
             <pubDate>Tue, 08 Aug 2023 18:22:30 GMT</pubDate>
             <guid>https://blog.shr4pnel.com/posts/swartz</guid>
+            <description>Tyler covers the life and death of Aaron Swartz, a software pioneer and general near-savant who stuck to their principles to the end.</description>
         </item>
         <item>
             <title>Diversifying tastes in music, or: "why you should be listening to good music instead of your music"</title>
@@ -30,6 +32,7 @@
             <author>admin@shr4pnel.com (big tyler)</author>
             <pubDate>Mon, 07 Aug 2023 19:11:30 GMT</pubDate>
             <guid>https://blog.shr4pnel.com/posts/diversifying</guid>
+            <description>Tyler covers the riveting music scene and mentions a lot of niche bands and people you should listen to.</description>
         </item>
         <item>
             <title>Infrastructure updates and web revival, or: "why the internet fucking sucks and will possibly forever"</title>
@@ -37,6 +40,7 @@
             <author>admin@shr4pnel.com (big tyler)</author>
             <pubDate>Fri, 28 Jul 2023 15:04:31 GMT</pubDate>
             <guid>https://blog.shr4pnel.com/posts/webrevival</guid>
+            <description>a brief microarticle on my gripes with the modern web development scene as well as what social media has developed into.</description>
         </item>
         <item>
             <title>First post in the history of ever, or: "am i a narcissist?"</title>
@@ -44,6 +48,7 @@
             <author>admin@shr4pnel.com (big tyler)</author>
             <pubDate>Sun, 23 Jul 2023 15:37:28 GMT</pubDate>
             <guid>https://blog.shr4pnel.com/posts/narcissist</guid>
+            <description>a brief rundown i made to test my handmade CMS. not worth a read!</description>
         </item>
     </channel>
 </rss>
