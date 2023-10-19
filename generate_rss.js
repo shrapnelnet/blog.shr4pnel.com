@@ -57,6 +57,7 @@ sortedPosts.forEach((post) => {
     builder.writeElement("author", "admin@shr4pnel.com (big tyler)");
     builder.writeElement("pubDate", dateToRFC822(new Date(post.date)));
     builder.writeElement("guid", `${blogURI}/posts/${post.name}`);
+    builder.writeElement("description", post.description)
     builder.endElement("item");
 });
 builder.endElement("channel");
