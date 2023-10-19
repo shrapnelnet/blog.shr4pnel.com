@@ -6,10 +6,18 @@
         <description>Ruminations on music, the world and whatever rubbish pops into my head delivered straight to you.</description>
         <language>en</language>
         <webMaster>shrapnelnet@protonmail.com (big tyler)</webMaster>
-        <lastBuildDate>Thu, 19 Oct 2023 22:46:17 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 19 Oct 2023 23:01:54 GMT</lastBuildDate>
         <pubDate>Sun, 23 Jul 2023 15:37:28 GMT</pubDate>
         <generator>shrapnelnet RSS servant v1.0</generator>
         <docs>https://cyber.harvard.edu/rss/rss.html</docs>
+        <item>
+            <title>Being neurodivergent in university</title>
+            <link>https://blog.shr4pnel.com/posts/neurodivergent</link>
+            <author>admin@shr4pnel.com (big tyler)</author>
+            <pubDate>Thu, 19 Oct 2023 23:01:28 GMT</pubDate>
+            <guid>https://blog.shr4pnel.com/posts/neurodivergent</guid>
+            <description>i complain for many a paragraph about my personal struggles in my first month at university</description>
+        </item>
         <item>
             <title>Switzerland 2023</title>
             <link>https://blog.shr4pnel.com/posts/switzerland</link>
