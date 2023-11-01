@@ -75,7 +75,6 @@ p > img {
     display: block;
     margin: 0 auto;
     padding: 10px;
-    padding-bottom: 10px;
     width: fit-content;
 }
 
@@ -92,6 +91,7 @@ p > img {
     font-size: small;
     line-height: 1.5em;
     flex-grow: 1;
+    padding-right: 2%;
 }
 
 .card > p {
@@ -178,7 +178,7 @@ p > img {
 }
 
 div#content.use-ibm > p, div#content.use-ibm > a {
-    font-family: "IBM VGA";
+    font-family: "IBM VGA", monospace;
     font-size: 1.125em;
 }
 
@@ -203,7 +203,6 @@ div#content.use-ibm > p, div#content.use-ibm > a {
 
     .card {
         flex-wrap: wrap;
-        justify-content: baseline;
         margin-bottom: 30px;
     }
 
