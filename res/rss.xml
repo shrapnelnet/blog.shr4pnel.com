@@ -6,10 +6,18 @@
         <description>Ruminations on music, the world and whatever rubbish pops into my head delivered straight to you.</description>
         <language>en</language>
         <webMaster>shrapnelnet@protonmail.com (big tyler)</webMaster>
-        <lastBuildDate>Thu, 19 Oct 2023 23:01:54 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 01 Nov 2023 23:19:09 GMT</lastBuildDate>
         <pubDate>Sun, 23 Jul 2023 15:37:28 GMT</pubDate>
         <generator>shrapnelnet RSS servant v1.0</generator>
         <docs>https://cyber.harvard.edu/rss/rss.html</docs>
+        <item>
+            <title>suicide in art and philosophy</title>
+            <link>https://blog.shr4pnel.com/posts/suicide</link>
+            <author>admin@shr4pnel.com (big tyler)</author>
+            <pubDate>Wed, 01 Nov 2023 23:18:44 GMT</pubDate>
+            <guid>https://blog.shr4pnel.com/posts/suicide</guid>
+            <description>a delve into the theme of suicide, looking at the works of painters and philosophers through history.</description>
+        </item>
         <item>
             <title>Being neurodivergent in university</title>
             <link>https://blog.shr4pnel.com/posts/neurodivergent</link>
